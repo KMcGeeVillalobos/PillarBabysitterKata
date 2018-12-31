@@ -3,9 +3,9 @@ namespace PillarBabysitterKata.Classes
 {
     public class RatePeriod
     {
-            public DateTime StartTime { get; private set; }
-            public DateTime EndTime { get; private set; }
-            public decimal Rate { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public DateTime EndTime { get; private set; }
+        public decimal Rate { get; private set; }
 
         public RatePeriod(DateTime startTime, DateTime endTime, decimal rate)
         {
@@ -16,7 +16,6 @@ namespace PillarBabysitterKata.Classes
 
         public decimal HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
         {
-
             if (jobStartTime > EndTime || jobEndTime < StartTime)
             {
                 return 0;
@@ -36,6 +35,11 @@ namespace PillarBabysitterKata.Classes
                 var timeSpan = jobEndTime - jobStartTime;
                 return (decimal)timeSpan.TotalHours;
             }
+        }
+
+        public decimal CalculatePayment(DateTime jobStartTime, DateTime jobEndTime)
+        {
+            return HrsInRatePeriod(jobStartTime, jobEndTime) * Rate;
         }
     }
 }

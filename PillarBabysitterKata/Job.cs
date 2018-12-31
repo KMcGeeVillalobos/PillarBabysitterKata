@@ -19,7 +19,7 @@ namespace PillarBabysitterKata.Classes
             get
             {
                 var period = Family.RatePeriods[0];
-                return period.HrsInRatePeriod(JobStartTime, JobEndTime) * period.Rate;
+                return period.CalculatePayment(JobStartTime, JobEndTime);
             }
         }
     }

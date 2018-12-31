@@ -20,7 +20,7 @@ namespace BabsitterKataTests
         }
 
         [TestMethod]
-        public void HrsInPeriodReturnsHrs()
+        public void JobsOnHalfHoursWork()
         {
             var periodStartTime = DateTime.Parse("10:00AM");
             var periodEndTime = DateTime.Parse("4:00PM");
@@ -29,6 +29,8 @@ namespace BabsitterKataTests
             var jobStartTime = DateTime.Parse("12:30 PM");
             var jobEndTime = DateTime.Parse("3:30 PM");
             Assert.AreEqual(3, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(30.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
+
         }
 
         [TestMethod]
@@ -41,6 +43,7 @@ namespace BabsitterKataTests
             var jobStartTime = DateTime.Parse("5:00PM");
             var jobEndTime = DateTime.Parse("10:00PM");
             Assert.AreEqual(0, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(0M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
         }
 
         [TestMethod]
@@ -53,6 +56,7 @@ namespace BabsitterKataTests
             var jobStartTime = DateTime.Parse("5:00AM");
             var jobEndTime = DateTime.Parse("10:00AM");
             Assert.AreEqual(0, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(0M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
         }
 
         [TestMethod]
@@ -65,6 +69,7 @@ namespace BabsitterKataTests
             var jobStartTime = DateTime.Parse("10:00AM");
             var jobEndTime = DateTime.Parse("3:00PM");
             Assert.AreEqual(3, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(30.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
         }
 
         [TestMethod]
@@ -77,6 +82,7 @@ namespace BabsitterKataTests
             var jobStartTime = DateTime.Parse("1:00PM");
             var jobEndTime = DateTime.Parse("8:00PM");
             Assert.AreEqual(3, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(30.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));  
         }
     }
 }
