@@ -13,5 +13,10 @@ namespace PillarBabysitterKata.Classes
             EndTime = endTime;
             Rate = rate;
         }
+        public double HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
+        {
+            var timeSpan = jobEndTime - jobStartTime;
+            return timeSpan.TotalHours;
+        }
     }
 }
