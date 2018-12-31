@@ -13,5 +13,14 @@ namespace PillarBabysitterKata.Classes
             JobEndTime = jobEndTime;
             Family = family;
         }
+
+        public decimal Payment
+        {
+            get
+            {
+                var period = Family.RatePeriods[0];
+                return period.HrsInRatePeriod(JobStartTime, JobEndTime) * period.Rate;
+            }
+        }
     }
 }

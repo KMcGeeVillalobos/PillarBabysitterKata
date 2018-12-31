@@ -14,7 +14,7 @@ namespace PillarBabysitterKata.Classes
             Rate = rate;
         }
 
-        public double HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
+        public decimal HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
         {
 
             if (jobStartTime > EndTime || jobEndTime < StartTime)
@@ -24,17 +24,17 @@ namespace PillarBabysitterKata.Classes
             else if (jobStartTime < StartTime && jobStartTime <= EndTime)
             {
                 var timeSpan = jobEndTime - StartTime;
-                return timeSpan.TotalHours;
+                return (decimal)timeSpan.TotalHours;
             }
             else if (jobStartTime >= StartTime && jobEndTime > EndTime)
             {
                 var timeSpan = EndTime - jobStartTime;
-                return timeSpan.TotalHours;
+                return (decimal)timeSpan.TotalHours;
             }
             else
             {
                 var timeSpan = jobEndTime - jobStartTime;
-                return timeSpan.TotalHours;
+                return (decimal)timeSpan.TotalHours;
             }
         }
     }
