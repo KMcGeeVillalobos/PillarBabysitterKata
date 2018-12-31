@@ -16,9 +16,20 @@ namespace PillarBabysitterKata.Classes
 
         public double HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
         {
+
             if (jobStartTime > EndTime || jobEndTime < StartTime)
             {
                 return 0;
+            }
+            else if (jobStartTime < StartTime && jobStartTime <= EndTime)
+            {
+                var timeSpan = jobEndTime - StartTime;
+                return timeSpan.TotalHours;
+            }
+            else if (jobStartTime >= StartTime && jobEndTime > EndTime)
+            {
+                var timeSpan = EndTime - jobStartTime;
+                return timeSpan.TotalHours;
             }
             else
             {
