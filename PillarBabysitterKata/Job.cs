@@ -18,8 +18,12 @@ namespace PillarBabysitterKata.Classes
         {
             get
             {
-                var period = Family.RatePeriods[0];
-                return period.CalculatePayment(JobStartTime, JobEndTime);
+                decimal total = 0;
+               foreach(RatePeriod period in Family.RatePeriods)
+                {
+                    total += period.CalculatePayment(JobStartTime, JobEndTime);
+                }
+                return total;
             }
         }
     }

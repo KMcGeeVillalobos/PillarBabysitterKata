@@ -84,5 +84,31 @@ namespace BabsitterKataTests
             Assert.AreEqual(3, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
             Assert.AreEqual(30.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));  
         }
+
+        [TestMethod]
+        public void PeriodCrossesMidnight()
+        {
+            var startTime = DateTime.Parse("12:00PM");
+            var endTime = DateTime.Parse("4:00AM");
+            decimal rate = 10.00M;
+            var ratePeriod = new RatePeriod(startTime, endTime, rate);
+            var jobStartTime = DateTime.Parse("1:00PM");
+            var jobEndTime = DateTime.Parse("1:00AM");
+            Assert.AreEqual(12, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(120.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
+        }
+
+        [TestMethod]
+        public void EntireJobAfterMidnight()
+        {
+            var startTime = DateTime.Parse("1:00AM");
+            var endTime = DateTime.Parse("4:00AM");
+            decimal rate = 10.00M;
+            var ratePeriod = new RatePeriod(startTime, endTime, rate);
+            var jobStartTime = DateTime.Parse("12:30AM");
+            var jobEndTime = DateTime.Parse("3:00AM");
+            Assert.AreEqual(2.0M, ratePeriod.HrsInRatePeriod(jobStartTime, jobEndTime));
+            Assert.AreEqual(20.00M, ratePeriod.CalculatePayment(jobStartTime, jobEndTime));
+        }
     }
 }

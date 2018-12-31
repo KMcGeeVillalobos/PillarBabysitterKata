@@ -7,15 +7,29 @@ namespace PillarBabysitterKata.Classes
         public DateTime EndTime { get; private set; }
         public decimal Rate { get; private set; }
 
+        private DateTime AdjustTimesAfterMidnight(DateTime time) {
+            if(time >= DateTime.Parse("12:00AM") && time <= DateTime.Parse("4:00AM"))
+            {
+                return time + new TimeSpan(1,0,0,0);
+            }
+            else
+            {
+                return time;
+            }
+        }
+
         public RatePeriod(DateTime startTime, DateTime endTime, decimal rate)
         {
-            StartTime = startTime;
-            EndTime = endTime;
+            StartTime = AdjustTimesAfterMidnight(startTime);
+            EndTime = AdjustTimesAfterMidnight(endTime);
             Rate = rate;
         }
 
         public decimal HrsInRatePeriod(DateTime jobStartTime, DateTime jobEndTime)
         {
+            jobStartTime = AdjustTimesAfterMidnight(jobStartTime);
+            jobEndTime = AdjustTimesAfterMidnight(jobEndTime);
+
             if (jobStartTime > EndTime || jobEndTime < StartTime)
             {
                 return 0;
