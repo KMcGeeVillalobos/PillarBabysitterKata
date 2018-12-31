@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PillarBabysitterKata", "PillarBabysitterKata\PillarBabysitterKata.csproj", "{3B450D1C-DAA7-4035-964F-5A11C357B70A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PillarBabysitterKataTests", "PillarBabysitterKataTests\PillarBabysitterKataTests.csproj", "{1C4F5F07-001B-46B2-8D74-4C0C049E70E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B450D1C-DAA7-4035-964F-5A11C357B70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B450D1C-DAA7-4035-964F-5A11C357B70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B450D1C-DAA7-4035-964F-5A11C357B70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B450D1C-DAA7-4035-964F-5A11C357B70A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4F5F07-001B-46B2-8D74-4C0C049E70E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4F5F07-001B-46B2-8D74-4C0C049E70E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4F5F07-001B-46B2-8D74-4C0C049E70E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4F5F07-001B-46B2-8D74-4C0C049E70E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
