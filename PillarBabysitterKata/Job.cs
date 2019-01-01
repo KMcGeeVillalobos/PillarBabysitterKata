@@ -19,7 +19,7 @@ namespace PillarBabysitterKata.Classes
             get
             {
                 decimal total = 0;
-               foreach(RatePeriod period in Family.RatePeriods)
+                foreach(RatePeriod period in Family.RatePeriods)
                 {
                     total += period.CalculatePayment(JobStartTime, JobEndTime);
                 }
